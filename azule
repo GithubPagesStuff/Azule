@@ -744,14 +744,14 @@ if [ -n "${files[*]}" ]; then
         rm -rf "Payload/$appname/$(basename "$i")"
         mv "$i" "Payload/$appname/"
         Verbose "Copied $(basename "$i") to app directory" "$(basename "$i") couldn't be copied to app directory" 16 -v
-    done < <(find "$dir/Tweak/Library/Application Support" ! -type l -iname '*.bundle' ! -path '*.appex/*' ! -path '*.bundle/*' ! -path '*.framework/*' 2>/dev/null)
+    done < <(find "$dir/Tweak/Library/MobileSubstrate" ! -type l -iname '*.bundle' ! -path '*.appex/*' ! -path '*.bundle/*' ! -path '*.framework/*' 2>/dev/null)
 
     # MERGING APPLICATION SUPPORT
     while read -r i; do
         rm -rf "Payload/$appname/$(basename "$i")"
         mv "$i" "Payload/$appname/"
         Verbose "Copied $(basename "$i") to app directory" "$(basename "$i") couldn't be copied to app directory" 16 -v
-    done < <(find "$dir/Tweak/Library/Application Support" -mindepth 2 -maxdepth 2 ! -type l ! -path '*.appex/*' ! -path '*.bundle/*' ! -path '*.framework/*' 2>/dev/null)
+    done < <(find "$dir/Tweak/Library/MobileSubstrate" -mindepth 2 -maxdepth 2 ! -type l ! -path '*.appex/*' ! -path '*.bundle/*' ! -path '*.framework/*' 2>/dev/null)
 
     # MOVING EXTENSIONS
     while read -r i; do
